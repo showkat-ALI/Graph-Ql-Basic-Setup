@@ -6,7 +6,23 @@ const port = 8080;
 app.get("/", (req, res) => {
   res.send("Graph ql server is fine");
 });
-const root = { hello: () => "Hi i am graphql" };
+const root = {
+  electronics: () => {
+    return {
+      id: 1990,
+      firstName: "Vacuam",
+      lastName: "tube",
+      components: [
+        {
+          component: "Resistors,capacitors",
+        },
+        {
+          component: "mika,ceramic,polar",
+        },
+      ],
+    };
+  },
+};
 app.use(
   "/graphql",
   graphqlHTTP({
